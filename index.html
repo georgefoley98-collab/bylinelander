@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Byline — Pre-sell pages that move your CPA ceiling</title>
+<meta name="description" content="We build the advertorial pre-sell pages that sit between your Meta ad and your product page. Built by operators who run ecommerce brands on paid traffic. Fixed price, five working days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B0F1A;
+  --ink-2:#141A28;
+  --body:#4A5468;
+  --muted:#8A93A5;
+  --page:#F5F6F8;
+  --card:#FFFFFF;
+  --line:rgba(11,15,26,.09);
+  --line-strong:rgba(11,15,26,.14);
+  --line-dark:rgba(255,255,255,.12);
+  --signal:#F5C518;
+  --good:#12A05C;
+  --r-lg:18px;
+  --r-md:12px;
+  --r-sm:8px;
+  --shadow:0 1px 2px rgba(16,24,40,.04), 0 12px 32px -16px rgba(16,24,40,.18);
+  --shadow-lg:0 2px 4px rgba(16,24,40,.04), 0 28px 60px -24px rgba(16,24,40,.28);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--page);color:var(--body);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.narrow{max-width:720px}
+.center{text-align:center;margin-left:auto;margin-right:auto}
+
+/* type */
+h1,h2,h3,h4{font-family:'Instrument Sans',sans-serif;color:var(--ink);font-weight:600;letter-spacing:-.03em;line-height:1.06}
+h1{font-size:clamp(2.5rem,5.6vw,4.1rem)}
+h2{font-size:clamp(2rem,3.9vw,3rem);line-height:1.08}
+h3{font-size:1.18rem;letter-spacing:-.02em;line-height:1.25}
+h4{font-size:1rem;letter-spacing:-.01em}
+p{margin:0 0 1rem}
+p:last-child{margin-bottom:0}
+.lede{font-size:1.18rem;line-height:1.55;color:var(--body)}
+.mono{font-family:'IBM Plex Mono',monospace}
+mark{background:linear-gradient(transparent 60%,rgba(245,197,24,.75) 60%);color:inherit;padding:0 .08em}
+
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink);
+  background:var(--card);border:1px solid var(--line);
+  padding:7px 14px;border-radius:999px;box-shadow:var(--shadow);
+}
+.pill i{width:6px;height:6px;border-radius:50%;background:var(--signal);display:block;flex:none}
+.pill.on-dark{background:rgba(255,255,255,.06);border-color:var(--line-dark);color:#fff;box-shadow:none}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:'Inter',sans-serif;font-weight:550;font-size:.98rem;
+  padding:13px 24px;border-radius:var(--r-sm);border:1px solid var(--ink);
+  background:var(--ink);color:#fff;cursor:pointer;
+  transition:transform .14s ease,box-shadow .14s ease,background .14s ease;
+}
+.btn:hover{background:var(--ink-2);transform:translateY(-1px);box-shadow:var(--shadow)}
+.btn-2{background:var(--card);color:var(--ink);border-color:var(--line-strong)}
+.btn-2:hover{background:#fff;border-color:var(--ink)}
+.btn-signal{background:var(--signal);border-color:var(--signal);color:var(--ink)}
+.btn-signal:hover{background:#FFD534;border-color:#FFD534}
+.btn-light{background:#fff;border-color:#fff;color:var(--ink)}
+.btn-light:hover{background:#F2F3F5;border-color:#F2F3F5}
+.btn-ghost-d{background:transparent;color:#fff;border-color:var(--line-dark)}
+.btn-ghost-d:hover{background:rgba(255,255,255,.08)}
+.btn-sm{padding:9px 16px;font-size:.88rem}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:60;background:rgba(245,246,248,.82);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.stuck{border-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+.mark{font-family:'Instrument Sans',sans-serif;font-weight:700;letter-spacing:-.06em;font-size:1.22rem;color:var(--ink)}
+.mark span{color:var(--signal)}
+.nav-links{display:flex;gap:28px;font-size:.93rem;color:var(--body)}
+.nav-links a:hover{color:var(--ink)}
+
+/* sections */
+section{padding:104px 0}
+.tight{padding-top:0}
+.head{max-width:660px;margin-bottom:48px}
+.head.center{text-align:center}
+.head .pill{margin-bottom:20px}
+.head h2{margin-bottom:14px}
+
+/* hero */
+.hero{padding:80px 0 96px;text-align:center}
+.hero h1{max-width:15ch;margin:22px auto 0}
+.hero .lede{max-width:56ch;margin:22px auto 0}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.hero-note{font-family:'IBM Plex Mono',monospace;font-size:.76rem;color:var(--muted);margin-top:18px}
+
+/* hero visual: ad account panel */
+.panel{
+  margin-top:56px;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r-lg);box-shadow:var(--shadow-lg);overflow:hidden;text-align:left;
+}
+.panel-bar{
+  display:flex;align-items:center;gap:10px;padding:13px 18px;
+  border-bottom:1px solid var(--line);background:#FCFCFD;
+}
+.dots{display:flex;gap:6px}
+.dots i{width:9px;height:9px;border-radius:50%;background:#E1E3E8;display:block}
+.panel-bar .t{font-family:'IBM Plex Mono',monospace;font-size:.73rem;color:var(--muted)}
+.panel-bar .r{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--muted)}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.data{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:.85rem;min-width:660px}
+table.data th{
+  text-align:left;font-weight:500;font-size:.67rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);padding:14px 18px;border-bottom:1px solid var(--line);white-space:nowrap;
+}
+table.data td{padding:17px 18px;border-bottom:1px solid var(--line);color:var(--ink);white-space:nowrap}
+table.data tr:last-child td{border-bottom:none}
+table.data tr.hl td{background:rgba(245,197,24,.13);font-weight:500}
+table.data tr.hl td:first-child{box-shadow:inset 3px 0 0 var(--signal)}
+table.data .lbl{font-family:'Inter',sans-serif;font-weight:550}
+.badge{
+  display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.64rem;
+  letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:var(--signal);
+  padding:3px 8px;border-radius:5px;margin-left:8px;vertical-align:1px;
+}
+
+/* stat band */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 28px;box-shadow:var(--shadow)}
+.stat .n{font-family:'Instrument Sans',sans-serif;font-size:3rem;font-weight:600;letter-spacing:-.04em;color:var(--ink);line-height:1}
+.stat .n em{font-style:normal;font-size:1.5rem;color:var(--muted)}
+.stat .l{margin-top:12px;font-size:.94rem;color:var(--body);line-height:1.45}
+
+/* generic cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 28px;box-shadow:var(--shadow)}
+.card h3{margin-bottom:9px}
+.card p{font-size:.96rem;color:var(--body)}
+.card .ix{
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--muted);
+  display:block;margin-bottom:16px;letter-spacing:.08em;
+}
+
+/* dark block */
+.dark{background:var(--ink);border-radius:26px;padding:76px 56px;color:#B8C0D0}
+.dark h2,.dark h3{color:#fff}
+.dark .lede{color:#B8C0D0}
+.dark p{color:#B8C0D0}
+.dark .head{margin-bottom:44px}
+.dark-card{background:rgba(255,255,255,.05);border:1px solid var(--line-dark);border-radius:var(--r-lg);padding:28px}
+.dark-card h3{margin-bottom:8px;font-size:1.05rem}
+.dark-card p{font-size:.94rem;color:#A2ABBD}
+
+/* deliverables list */
+.list{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.list > div{background:var(--card);padding:28px 26px}
+.list h4{margin-bottom:7px}
+.list p{font-size:.93rem;color:var(--body)}
+.tick{width:20px;height:20px;border-radius:50%;background:rgba(245,197,24,.22);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.tick::after{content:"";width:6px;height:10px;border:solid var(--ink);border-width:0 1.8px 1.8px 0;transform:rotate(45deg) translate(-1px,-1px)}
+
+/* gallery */
+.shot{
+  aspect-ratio:4/3;border-radius:var(--r-md);border:1px solid var(--line);
+  background:linear-gradient(180deg,#FBFBFC,#F1F2F5);
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);
+}
+.card a.more{font-family:'IBM Plex Mono',monospace;font-size:.76rem;color:var(--ink);display:inline-block;margin-top:14px;border-bottom:1px solid var(--line-strong);padding-bottom:2px}
+.card a.more:hover{border-color:var(--ink)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{background:rgba(255,255,255,.05);border:1px solid var(--line-dark);border-radius:var(--r-lg);padding:26px 24px}
+.step .n{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--signal);
+  display:block;margin-bottom:18px;letter-spacing:.1em;
+}
+.step h3{font-size:1.02rem;margin-bottom:8px}
+.step p{font-size:.92rem;color:#A2ABBD}
+
+/* pricing */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+.tier{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:32px 28px;box-shadow:var(--shadow);position:relative}
+.tier.feature{border:1.5px solid var(--ink);box-shadow:var(--shadow-lg);transform:translateY(-8px)}
+.tier .tag{
+  position:absolute;top:18px;right:20px;font-family:'IBM Plex Mono',monospace;
+  font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--signal);color:var(--ink);padding:4px 9px;border-radius:999px;
+}
+.tier h3{font-size:1.02rem;margin-bottom:14px}
+.tier .price{font-family:'Instrument Sans',sans-serif;font-size:2.9rem;font-weight:600;letter-spacing:-.04em;color:var(--ink);line-height:1}
+.tier .per{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--muted);display:block;margin-top:9px}
+.tier ul{list-style:none;margin:24px 0 28px}
+.tier li{font-size:.94rem;color:var(--body);padding:9px 0 9px 24px;position:relative;border-top:1px solid var(--line)}
+.tier li:first-child{border-top:none}
+.tier li::before{
+  content:"";position:absolute;left:2px;top:15px;width:5px;height:9px;
+  border:solid var(--signal);border-width:0 2px 2px 0;transform:rotate(45deg);
+}
+.tier .btn{width:100%}
+.bumps{
+  margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:20px 24px;font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--body);line-height:1.9;
+}
+.bumps b{color:var(--ink);font-weight:500}
+
+/* faq */
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);margin-bottom:10px;overflow:hidden}
+.faq summary{
+  cursor:pointer;list-style:none;padding:20px 24px;font-weight:550;color:var(--ink);
+  display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:1rem;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:1.15rem;flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 24px 22px;font-size:.96rem;color:var(--body);max-width:64ch}
+
+/* closing cta */
+.cta-block{text-align:center}
+.cta-block h2{max-width:18ch;margin:0 auto 16px}
+.cta-block .lede{max-width:46ch;margin:0 auto 32px}
+.kicker{
+  margin-top:52px;padding-top:26px;border-top:1px solid var(--line-dark);
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:#8A93A5;
+}
+
+footer{padding:36px 0 44px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;
+  font-family:'IBM Plex Mono',monospace;font-size:.76rem;color:var(--muted);
+  border-top:1px solid var(--line);padding-top:28px;}
+
+/* scroll instrument */
+.inst{
+  position:fixed;right:20px;bottom:20px;z-index:70;
+  background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow-lg);
+  border-radius:999px;padding:9px 16px;display:flex;align-items:center;gap:11px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--ink);
+  max-width:min(330px,calc(100vw - 40px));transition:border-radius .2s ease;
+}
+.inst.say{border-radius:16px;flex-direction:column;align-items:flex-start;gap:8px}
+.inst .top{display:flex;align-items:center;gap:11px;width:100%}
+.inst .bar{width:52px;height:4px;border-radius:999px;background:#E6E8EC;position:relative;flex:none}
+.inst .bar i{position:absolute;inset:0 auto 0 0;width:0;background:var(--signal);border-radius:999px;transition:width .12s linear}
+.inst b{font-weight:500;min-width:34px;text-align:right}
+.inst .lab{color:var(--muted)}
+.inst .msg{display:none;font-size:.71rem;color:var(--body);line-height:1.45}
+.inst.say .msg{display:block}
+
+@media (max-width:960px){
+  .grid-3,.stats,.list,.tiers,.steps{grid-template-columns:1fr 1fr}
+  .list{grid-template-columns:1fr 1fr}
+  .dark{padding:56px 32px;border-radius:20px}
+  .nav-links{display:none}
+}
+@media (max-width:680px){
+  section{padding:72px 0}
+  .hero{padding:56px 0 72px}
+  .grid-3,.grid-2,.stats,.list,.tiers,.steps{grid-template-columns:1fr}
+  .tier.feature{transform:none}
+  .dark{padding:44px 22px}
+  .inst{right:12px;bottom:12px;padding:8px 13px}
+  .inst .msg{display:none !important}
+  .inst.say{flex-direction:row;align-items:center;border-radius:999px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important;animation:none !important}
+  html{scroll-behavior:auto}
+}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<div class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#" class="mark">byline<span>.</span></a>
+    <nav class="nav-links">
+      <a href="#proof">The data</a>
+      <a href="#included">What you get</a>
+      <a href="#work">Live pages</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a href="#pricing" class="btn btn-sm">Order a page</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="pill"><i></i> Pre-sell pages for cold Meta traffic</span>
+    <h1>Most brands don't have a CPA problem. They have a ceiling problem.</h1>
+    <p class="lede">Push budget, CPA climbs, you pull it back. We build the advertorial pre-sell pages that move the ceiling, so the account keeps taking spend instead of stalling at the same number every month.</p>
+    <div class="hero-btns">
+      <a href="#pricing" class="btn">See pricing</a>
+      <a href="#proof" class="btn btn-2">See the ad account data</a>
+    </div>
+    <p class="hero-note">Fixed price · Five working days · Deployed on your domain</p>
+
+    <div class="panel">
+      <div class="panel-bar">
+        <span class="dots"><i></i><i></i><i></i></span>
+        <span class="t">Ads Manager · ad sets · 1 Jun – 13 Aug 2026</span>
+        <span class="r">USD · 7d click / 1d view</span>
+      </div>
+      <div class="tbl-scroll">
+        <table class="data">
+          <thead>
+            <tr><th>Ad set</th><th>Spend</th><th>Purchases</th><th>Cost / purchase</th><th>CTR</th><th>Cost / click</th><th>Cost / page view</th></tr>
+          </thead>
+          <tbody>
+            <tr class="hl">
+              <td class="lbl">Pre-sell page <span class="badge">Byline format</span></td>
+              <td>$19,702</td><td>1,252</td><td>$15.74</td><td>2.49%</td><td>$0.64</td><td>$0.71</td>
+            </tr>
+            <tr><td class="lbl">Direct to product A</td><td>$6,111</td><td>352</td><td>$17.36</td><td>2.22%</td><td>$0.88</td><td>$1.05</td></tr>
+            <tr><td class="lbl">Direct to product B</td><td>$1,353</td><td>91</td><td>$14.87</td><td>2.12%</td><td>$0.75</td><td>$0.89</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PROOF -->
+<section id="proof" class="tight">
+  <div class="wrap">
+    <div class="head">
+      <span class="pill"><i></i> The numbers above, explained</span>
+      <h2>Same brand. Same product. One page took fourteen times the budget.</h2>
+      <p class="lede">This is a jewellery brand we run. Three ad sets were live over the period. One sent traffic to a pre-sell page, the other two went straight to the product page.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="n">14.5<em>×</em></div>
+        <div class="l">More budget absorbed than the direct-to-product ad set, at a cost per purchase within a dollar of it</div>
+      </div>
+      <div class="stat">
+        <div class="n">28<em>%</em></div>
+        <div class="l">Cheaper cost per click than the best-performing direct-to-product ad set</div>
+      </div>
+      <div class="stat">
+        <div class="n">32<em>%</em></div>
+        <div class="l">Cheaper cost per landing page view, which is where scale actually breaks first</div>
+      </div>
+    </div>
+
+    <div class="narrow" style="margin-top:44px">
+      <p>Anyone can hold a good cost per purchase on a small ad set. Holding it while the budget goes up fourteen times is the part that decides whether you have a business or a hobby. <mark>The pre-sell page is what let that budget go in.</mark></p>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--muted);margin-top:20px">Figures exported from Meta Ads Manager. Brand withheld because it is currently trading.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="tight">
+  <div class="wrap">
+    <div class="dark">
+      <div class="head">
+        <span class="pill on-dark"><i></i> Why the ceiling exists</span>
+        <h2>A product page is built for someone who already decided.</h2>
+        <p class="lede">Cold traffic has not decided. It arrived from an ad that made a promise and landed on a page whose only job is to take payment from someone already convinced.</p>
+      </div>
+      <div class="grid-3">
+        <div class="dark-card">
+          <h3>The ad carries all the weight</h3>
+          <p>Every objection, every proof point and the whole reason to care has to fit into fifteen seconds of video. It cannot. So the page has to finish the job, and it was not built to.</p>
+        </div>
+        <div class="dark-card">
+          <h3>The promise breaks on arrival</h3>
+          <p>The ad was a story. The page is a variant picker, a size chart and a reviews widget. The visitor feels the handoff, and a share of them leave inside three seconds.</p>
+        </div>
+        <div class="dark-card">
+          <h3>Scale makes it worse</h3>
+          <p>As budget rises you buy colder audiences. The page that just about worked on your warmest 10% falls apart on the rest, and CPA climbs until you pull the budget back down.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section id="included" class="tight">
+  <div class="wrap">
+    <div class="head">
+      <span class="pill"><i></i> What arrives</span>
+      <h2>A finished page, live on your domain, pointing at your checkout.</h2>
+      <p class="lede">Not a template, not a login, not a file to hand to a developer.</p>
+    </div>
+    <div class="list">
+      <div><div class="tick"></div><h4>Written</h4><p>Long-form editorial built around one angle. We extend the messaging already working in your ad account rather than inventing a claim you have never tested.</p></div>
+      <div><div class="tick"></div><h4>Built</h4><p>Hand-built HTML and CSS. Fast on mobile, no page-builder tax, no app subscription, nothing to renew.</p></div>
+      <div><div class="tick"></div><h4>Deployed</h4><p>Live on a subdomain of yours, page.yourbrand.com, so traffic never leaves your domain. We handle the DNS.</p></div>
+      <div><div class="tick"></div><h4>Tracked</h4><p>Your Meta pixel installed and firing, UTM parameters passed through to checkout so attribution stays intact.</p></div>
+      <div><div class="tick"></div><h4>Compliant</h4><p>Claims checked against the advertising rules of the market you sell into before the page goes live, not after a disapproval.</p></div>
+      <div><div class="tick"></div><h4>Yours</h4><p>You own the files and the page. No lock-in and no ongoing fee to keep it online.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTION -->
+<section class="tight">
+  <div class="wrap">
+    <div class="dark">
+      <div class="grid-2" style="gap:48px;align-items:center">
+        <div>
+          <span class="pill on-dark" style="margin-bottom:20px"><i></i> The obvious question</span>
+          <h2 style="font-size:clamp(1.8rem,3.2vw,2.5rem)">Why not have an AI tool generate one?</h2>
+        </div>
+        <div>
+          <p>You can. There are several, they are fast, and some are free.</p>
+          <p>Here is what they are missing. A tool that reads your product URL knows what the product is. It does not know which of your five angles is actually holding, which audience got cheap this month, what your margin can absorb, or that the real hook is a comment under a video rather than anything in your copy.</p>
+          <p>That lives in your ad account and in the head of someone who has run one. It is the whole difference between a page that looks like an advertorial and a page that works like one.</p>
+          <p style="color:#fff">We use every tool available to build these quickly. That is why the price is what it is. What you are buying is the judgement about what goes on the page.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="tight">
+  <div class="wrap">
+    <div class="head">
+      <span class="pill"><i></i> Live pages</span>
+      <h2>Currently taking paid traffic.</h2>
+      <p class="lede">Every page below is running spend right now. Open them and read as a customer would.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="shot">[ SCREENSHOT 01 ]</div>
+        <h3>Jewellery · comfort angle</h3>
+        <p>Editorial review format, built for a 45 to 64 audience on cold traffic.</p>
+        <a class="more" href="#" target="_blank" rel="noopener">Open live page →</a>
+      </div>
+      <div class="card">
+        <div class="shot">[ SCREENSHOT 02 ]</div>
+        <h3>Jewellery · founder story</h3>
+        <p>First-person narrative angle against the same product and audience.</p>
+        <a class="more" href="#" target="_blank" rel="noopener">Open live page →</a>
+      </div>
+      <div class="card">
+        <div class="shot">[ SCREENSHOT 03 ]</div>
+        <h3>Skincare · listicle</h3>
+        <p>Numbered reasons format, built for a problem-aware audience.</p>
+        <a class="more" href="#" target="_blank" rel="noopener">Open live page →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="tight">
+  <div class="wrap">
+    <div class="dark">
+      <div class="head">
+        <span class="pill on-dark"><i></i> How it runs</span>
+        <h2>Four steps. No calls unless you want one.</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="n">01</span>
+          <h3>Order and brief</h3>
+          <p>Ten minutes. Product, audience, the creative currently performing, brand assets. If you do not know which angle is working, we will find it in what you send.</p>
+        </div>
+        <div class="step">
+          <span class="n">02</span>
+          <h3>We pick the angle</h3>
+          <p>We choose the format and angle that match the awareness level of your traffic, and tell you why. If the product is wrong for a pre-sell page we say so before building.</p>
+        </div>
+        <div class="step">
+          <span class="n">03</span>
+          <h3>You review a live link</h3>
+          <p>Not a mockup. The real page on a staging URL, on your phone, at full speed. Revisions included.</p>
+        </div>
+        <div class="step">
+          <span class="n">04</span>
+          <h3>We deploy</h3>
+          <p>Live on your subdomain with your pixel firing. You can point an ad at it the same day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="tight">
+  <div class="wrap">
+    <div class="head center">
+      <span class="pill"><i></i> Pricing</span>
+      <h2>Fixed price. Nothing to negotiate.</h2>
+      <p class="lede">Five working days as standard on every tier.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier">
+        <h3>Single page</h3>
+        <div class="price">£450</div>
+        <span class="per">One page · one angle</span>
+        <ul>
+          <li>One advertorial pre-sell page</li>
+          <li>One round of revisions</li>
+          <li>Deployed on your subdomain</li>
+          <li>Pixel and UTM passthrough</li>
+        </ul>
+        <a href="#start" class="btn btn-2">Start one page</a>
+      </div>
+      <div class="tier feature">
+        <span class="tag">Most ordered</span>
+        <h3>Three-angle test pack</h3>
+        <div class="price">£900</div>
+        <span class="per">Three pages · £300 each</span>
+        <ul>
+          <li>Three pages, three distinct angles</li>
+          <li>Same product, built to test against each other</li>
+          <li>Two rounds of revisions</li>
+          <li>Deployed, pixelled, ready to split</li>
+          <li>We tell you which we would run first</li>
+        </ul>
+        <a href="#start" class="btn">Start the test pack</a>
+      </div>
+      <div class="tier">
+        <h3>Five-angle pack</h3>
+        <div class="price">£1,300</div>
+        <span class="per">Five pages · £260 each</span>
+        <ul>
+          <li>Five pages, five angles</li>
+          <li>For brands already testing at volume</li>
+          <li>Three rounds of revisions</li>
+          <li>Priority queue</li>
+        </ul>
+        <a href="#start" class="btn btn-2">Start five</a>
+      </div>
+    </div>
+    <div class="bumps">
+      <b>Add at checkout</b> — 48-hour turnaround +£150 · Regional clone (currency, spelling, shipping copy) +£95 each · Split-test variant of your winner +£120<br>
+      <b>Ongoing</b> — £700/month: two new pages a month plus iteration on whichever is currently winning.
+    </div>
+    <div class="narrow" style="margin-top:36px">
+      <p><strong style="color:var(--ink)">Why three is the default.</strong> One page is a guess. Three pages against the same product and audience is a test, and the gap between your best and worst angle is usually wider than the gap between a good page and a bad one. If you only buy one thing, buy the test.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="tight">
+  <div class="wrap">
+    <div class="head center">
+      <span class="pill"><i></i> Before you order</span>
+      <h2>Straight answers.</h2>
+    </div>
+    <div class="faq narrow" style="margin:0 auto">
+      <details><summary>Will this work on my store platform?</summary><p>Yes. The page sits on your own subdomain and links to your existing product or checkout URL, so what runs underneath does not matter. Shopify, WooCommerce, custom, all fine.</p></details>
+      <details><summary>Do you write the copy from scratch?</summary><p>We write the page, but we build it on messaging that has already earned its place. If you have ads running we extend what works. If you are pre-launch with nothing tested, say so at checkout and we will tell you honestly whether to buy this yet.</p></details>
+      <details><summary>What do you need from me?</summary><p>Brand assets, product images, your product or checkout URLs, your best-performing ad creative and copy, your Meta pixel ID, and DNS access to point a subdomain. Roughly ten minutes of gathering.</p></details>
+      <details><summary>Can you guarantee it beats my product page?</summary><p>No, and be careful with anyone who does. What we can tell you is what the format does structurally, what it has done on our own spend, and that if we think the angle is wrong we would rather say so than take the order.</p></details>
+      <details><summary>What happens after handover?</summary><p>Fourteen days of minor copy and styling changes included. Structural changes are quoted separately. You own the files either way, so you are never stuck with us.</p></details>
+      <details><summary>Who actually builds it?</summary><p>A small team that runs ecommerce brands on Meta spend. We do not take on so many builds that the person choosing your angle is someone who has never bought traffic.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="start" class="tight">
+  <div class="wrap">
+    <div class="dark cta-block">
+      <span class="pill on-dark" style="margin-bottom:20px"><i></i> Start</span>
+      <h2>Point your next ad somewhere built for it.</h2>
+      <p class="lede">Order, fill the brief, review a live link in five working days.</p>
+      <div class="hero-btns">
+        <a href="mailto:hello@example.com?subject=Byline%20order" class="btn btn-signal">Order the three-angle pack — £900</a>
+        <a href="#pricing" class="btn btn-ghost-d">See all tiers</a>
+      </div>
+      <p class="kicker">You have just read a pre-sell page for a pre-sell page. That was the demonstration.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span class="mark" style="font-size:1rem">byline<span style="color:var(--signal)">.</span></span>
+      <span>hello@example.com</span>
+    </div>
+  </div>
+</footer>
+
+<div class="inst" id="inst" aria-hidden="true">
+  <div class="top">
+    <span class="lab">Scroll depth</span>
+    <span class="bar"><i id="fill"></i></span>
+    <b id="pct">0%</b>
+  </div>
+  <span class="msg" id="msg"></span>
+</div>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'),inst=document.getElementById('inst'),
+      pct=document.getElementById('pct'),fill=document.getElementById('fill'),msg=document.getElementById('msg'),
+      marks=[
+        {at:25,t:'A quarter down. Most cold traffic has already left a product page by here.'},
+        {at:55,t:'Past halfway and still reading. That is the entire mechanism.'},
+        {at:80,t:'At this depth a visitor is no longer browsing. They are deciding.'}
+      ],fired={},ticking=false;
+  function update(){
+    var h=document.documentElement,max=h.scrollHeight-h.clientHeight,
+        top=h.scrollTop||document.body.scrollTop,
+        p=max>0?Math.min(100,Math.round(top/max*100)):0;
+    pct.textContent=p+'%';fill.style.width=p+'%';
+    nav.classList.toggle('stuck',top>8);
+    for(var i=0;i<marks.length;i++){
+      if(p>=marks[i].at&&!fired[marks[i].at]){
+        fired[marks[i].at]=true;msg.textContent=marks[i].t;inst.classList.add('say');
+        clearTimeout(window.__t);window.__t=setTimeout(function(){inst.classList.remove('say');},5400);
+      }
+    }
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive:true});
+  update();
+})();
+</script>
+</body>
+</html>
